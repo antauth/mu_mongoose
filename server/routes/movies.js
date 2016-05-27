@@ -48,6 +48,8 @@ router.delete('/:id', function (req, res) {
 });
 
 router.put('/:id/comments', function (req, res) {
+  console.log('PUT /comments ', req.params.id);
+  console.log(req.body);
   var id = req.params.id;
   var comment = req.body; // {content: <some comment>}
 
@@ -60,6 +62,7 @@ router.put('/:id/comments', function (req, res) {
     movie.comments.push(comment);
 
     movie.save(function (err) {
+      console.log('saving comment');
       if (err) {
         res.sendStatus(500);
         return;

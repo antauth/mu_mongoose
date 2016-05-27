@@ -44,7 +44,6 @@ app.controller('MovieController', ['$scope', '$http', function ($scope, $http) {
     $http.put('/movies/' + id + '/comments', comment)
       .then(function (response) {
         console.log('PUT /comments ', comment);
-        $scope.newComment = '';
         getMovies();
       });
   };
@@ -58,7 +57,7 @@ app.controller('MovieController', ['$scope', '$http', function ($scope, $http) {
 
         $scope.movies = response.data;
         console.log('GET /movies ', response.data);
-
+        $scope.newComment = {};
       });
   }
 }]);

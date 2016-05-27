@@ -9,6 +9,7 @@ var CommentSchema = new Schema({
 CommentSchema.pre('save', function (next) {
   var cleanContent = profanityFilter(this.content);
   this.content = cleanContent;
+  console.log('cleaning content');
   next();
 });
 
